@@ -2,9 +2,9 @@
 
 # Conekta Node SDK
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/57cbb329b5b079b8b249/maintainability)](https://codeclimate.com/repos/5c4cbff6d595ed02d0001a88/maintainability)
 [![npm version](https://badge.fury.io/js/conekta-kiss.svg)](https://badge.fury.io/js/conekta-kiss)
 [![Dependencies](https://david-dm.org/nuremx/conekta-kiss.svg)](https://david-dm.org/nuremx/conekta-kiss)
+[![Maintainability](https://api.codeclimate.com/v1/badges/57cbb329b5b079b8b249/maintainability)](https://codeclimate.com/repos/5c4cbff6d595ed02d0001a88/maintainability)
 
 > Based on KISS principle
 
