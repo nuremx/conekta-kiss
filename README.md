@@ -64,7 +64,7 @@ try {
 
 `conekta.Customer`
 
-### Attributes
+#### Attributes
 
 | Name                       | Type                        |
 | -------------------------- | --------------------------- |
