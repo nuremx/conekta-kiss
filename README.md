@@ -35,26 +35,21 @@ import conekta from 'conekta-kiss'
 conekta.config('9YxqfRnx4sMQDnRsqdYn')
 
 try {
+  // Create customer
   const customer = await new conekta.Customer({
     name: 'John Appleseed',
     email: 'johnappleseed@mail.com',
   })
 
-  console.log('Created customer', customer)
-
+  // Update customer attributes
   customer.name = 'Mr. John Appleseed'
+  await customer.save()
 
-  const updated = await customer.save()
-
-  console.log('Updated customer', updated)
-
+  // Add payment sources
   const paymentSource = await customer.addPaymentSource({ token: '' })
 
-  console.log('Customer can purchase stuff!', customer, paymentSource)
-
+  // Get customer by id
   const otherCustomer = await conekta.Customer.findById('9j821831283huas')
-
-  console.log('Found customer', otherCustomer)
 } catch (error) {
   console.log('Some error ocurred', error)
 }
