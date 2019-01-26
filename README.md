@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/nuremx/conekta-kiss/master/.github/banner.png" align="center" alt="Conekta KISS banner" />
+
 # Conekta Node SDK
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/57cbb329b5b079b8b249/maintainability)](https://codeclimate.com/repos/5c4cbff6d595ed02d0001a88/maintainability)
@@ -79,13 +81,17 @@ try {
 
 #### Functions
 
-| Name                                        | Return                  | Description                              |
-| ------------------------------------------- | ----------------------- | ---------------------------------------- |
-| `Customer.prototype.findById(id: String)`   | `conekta.Customer`      | Finds customer by given id [Static]      |
-| `Customer.prototype.deleteById(id: String)` | `Boolean`               | Removes customer by given id [Static]    |
-| `Customer.remove()`                         | `Boolean`               | Removes existing customer                |
-| `Customer.addPaymentSource(args: Object)`   | `conekta.PaymentSource` | Adds payment source to existing customer |
-| `Customer.update(id: String, args: Object)` | `conekta.Customer`      | Updates existing customer                |
+| Name                                        | Returns                              | Description                              |
+| ------------------------------------------- | ------------------------------------ | ---------------------------------------- |
+| `Customer.prototype.findById(id: String)`   | `Promise` => `conekta.Customer`      | Finds customer by given id [Static]      |
+| `Customer.prototype.deleteById(id: String)` | `Promise` => `Boolean`               | Removes customer by given id [Static]    |
+| `Customer.remove()`                         | `Promise` => `Boolean`               | Removes existing customer                |
+| `Customer.addPaymentSource(args: Object)`   | `Promise` => `conekta.PaymentSource` | Adds payment source to existing customer |
+| `Customer.update(id: String, args: Object)` | `Promise` => `conekta.Customer`      | Updates existing customer                |
+
+### PaymentSource
+
+`conekta.Customer.PaymentSource`
 
 ## License
 
