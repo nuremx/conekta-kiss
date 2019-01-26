@@ -16,7 +16,13 @@ Conekta NodeJS SDK for people who like modern JS, small dependencies and code th
 
 ## Documentation
 
+### Requirements
+
+- `node >= 6.0.0`
+
 ### Setup
+
+Get your Conekta API keys at `https://admin.conekta.com/`
 
 #### Usage example
 
@@ -43,12 +49,33 @@ try {
   customer.addPaymentSource({ token: '' })
 
   console.log('Customer can purchase stuff!', customer)
+
+  const otherCustomer = await conekta.Customer.findById('9j821831283huas')
+
+  console.log('Found customer', otherCustomer)
 } catch (error) {
   console.log('Some error ocurred', error)
 }
 ```
 
+## API
+
 ### Customer
+
+`conekta.Customer`
+
+### Attributes
+
+| Name                       | Type                        |
+| -------------------------- | --------------------------- |
+| `id`                       | `String`                    |
+| `name`                     | `String`                    |
+| `email`                    | `String`                    |
+| `phone`                    | `String`                    |
+| `shippingContacts`         | `[conekta.ShippingContact]` |
+| `paymentSources`           | `[conekta.PaymentSource]`   |
+| `defaultPaymentSourceId`   | `String`                    |
+| `defaultShippingContactId` | `String`                    |
 
 #### Functions
 
