@@ -96,7 +96,7 @@ try {
 | Name         | Type      | Description                                     |
 | ------------ | --------- | ----------------------------------------------- |
 | `id`         | `String`  |                                                 |
-| `last4`      | `Int`     | Last 4 digits of card                           |
+| `last4`      | `String`  | Last 4 digits of card                           |
 | `type`       | `String`  | Payment type `['card']`                         |
 | `createdAt`  | `Date`    |                                                 |
 | `bin`        | `Int`     | Bank Identification Number                      |
