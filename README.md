@@ -39,7 +39,7 @@ try {
   const customer = await new conekta.Customer({
     name: 'John Appleseed',
     email: 'johnappleseed@mail.com',
-  })
+  }).save()
 
   // Update customer attributes
   customer.name = 'Mr. John Appleseed'
@@ -63,38 +63,78 @@ try {
 
 #### Attributes
 
-| Name                       | Type                        |
-| -------------------------- | --------------------------- |
-| `id`                       | `String`                    |
-| `name`                     | `String`                    |
-| `email`                    | `String`                    |
-| `phone`                    | `String`                    |
-| `shippingContacts`         | `[conekta.ShippingContact]` |
-| `paymentSources`           | `[conekta.PaymentSource]`   |
-| `defaultPaymentSourceId`   | `String`                    |
-| `defaultShippingContactId` | `String`                    |
+| Name                                  | Type                        |
+| ------------------------------------- | --------------------------- |
+| `id`                                  | `String`                    |
+| `email`                               | `String`                    |
+| `name`                                | `String`                    |
+| `phone` _optional_                    | `String`                    |
+| `shippingContacts` _optional_         | `[conekta.ShippingContact]` |
+| `paymentSources` _optional_           | `[conekta.PaymentSource]`   |
+| `defaultPaymentSourceId` _optional_   | `String`                    |
+| `defaultShippingContactId` _optional_ | `String`                    |
 
 #### Functions
 
-| Name                                        | Returns                              | Description                              |
-| ------------------------------------------- | ------------------------------------ | ---------------------------------------- |
-| `Customer.prototype.findById(id: String)`   | `Promise` => `conekta.Customer`      | Finds customer by given id [Static]      |
-| `Customer.prototype.deleteById(id: String)` | `Promise` => `Boolean`               | Removes customer by given id [Static]    |
-| `Customer.remove()`                         | `Promise` => `Boolean`               | Removes existing customer                |
-| `Customer.addPaymentSource(args: Object)`   | `Promise` => `conekta.PaymentSource` | Adds payment source to existing customer |
-| `Customer.update(id: String, args: Object)` | `Promise` => `conekta.Customer`      | Updates existing customer                |
+| Name                                                       | Returns                              | Description                                                                    |
+| ---------------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------ |
+| `Customer({ name: String, email: String, phone: String })` | `conekta.Customer`                   | **Constructor** Creates `conekta.Customer` instance, to save to call `.save()` |
+| `Customer.findById(id: String)`                            | `Promise` => `conekta.Customer`      | Finds customer by given id (_static_)                                          |
+| `Customer.deleteById(id: String)`                          | `Promise` => `Boolean`               | Removes customer by given id (_static_)                                        |
+| `Customer.update(id: String, customer: Object)`            | `Promise` => `conekta.Customer`      | Updates existing customer                                                      |
+| `save()`                                                   | `Promise` => `Boolean`               | Saves customer instance, creating new or updating                              |
+| `remove()`                                                 | `Promise` => `Boolean`               | Removes existing customer                                                      |
+| `addPaymentSource(paymentSource: Object)`                  | `Promise` => `conekta.PaymentSource` | Adds _payment source_ to existing customer                                     |
+| `removePaymentSource(id: String)`                          | `Promise` => `Boolean`               | Removes _payment source_ from existing customer                                |
 
 ### PaymentSource
 
-`conekta.Customer.PaymentSource`
+`conekta.PaymentSource`
 
-WIP
+#### Attributes
 
-### Orders
+| Name         | Type      | Description                                     |
+| ------------ | --------- | ----------------------------------------------- |
+| `id`         | `String`  |                                                 |
+| `last4`      | `Int`     | Last 4 digits of card                           |
+| `type`       | `String`  | Payment type `['card']`                         |
+| `createdAt`  | `Date`    |                                                 |
+| `bin`        | `Int`     | Bank Identification Number                      |
+| `expMonth`   | `Int`     | Month of expiry (1 - 12)                        |
+| `expYear`    | `Int`     | Year of expiry (four-digit)                     |
+| `brand`      | `String`  | Card brand `['VISA', 'MC', 'AMERICAN_EXPRESS']` |
+| `name`       | `String`  | Cardholder's name                               |
+| `customerId` | `String`  |                                                 |
+| `isDefault`  | `Boolean` |                                                 |
+
+#### Functions
+
+| Name                                                               | Returns                              | Description                        |
+| ------------------------------------------------------------------ | ------------------------------------ | ---------------------------------- |
+| `PaymentSource({ token: String, customer: String, type: String })` | `Promise` => `conekta.PaymentSource` | **Constructor**                    |
+| `PaymentSource.update(id: String, paymentSource: Object)`          | `Promise` => `conekta.PaymentSource` | Updates payment source by given id |
+| `save()`                                                           | `Promise` => `conekta.PaymentSource` | Updates payment source instance    |
+| `remove()`                                                         | `Promise` => `Boolean`               | Deletes payment source             |
+
+### Order
 
 `conekta.Orders`
 
-WIP
+#### Attributes
+
+| Name           | Type                | Description            |
+| -------------- | ------------------- | ---------------------- |
+| `currency`     | `String`            | Currency of the charge |
+| `customerInfo` | `Object`            |                        |
+| `lineItems`    | `Int`               |                        |
+| `charges`      | `[Object]`          |                        |
+| `taxLines`     | `String` _optional_ |                        |
+
+#### Functions
+
+| Name                                                                                        | Returns                      | Description     |
+| ------------------------------------------------------------------------------------------- | ---------------------------- | --------------- |
+| `Order({ currency: String, customerInfo: Object, lineItems: [Object], charges: [Object] })` | `Promise` => `conekta.Order` | **Constructor** |
 
 ## Todo
 
