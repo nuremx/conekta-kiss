@@ -44,13 +44,13 @@ try {
 
   customer.name = 'Mr. John Appleseed'
 
-  await customer.save()
+  const updated = await customer.save()
 
-  console.log('Updated customer', customer)
+  console.log('Updated customer', updated)
 
-  customer.addPaymentSource({ token: '' })
+  const paymentSource = await customer.addPaymentSource({ token: '' })
 
-  console.log('Customer can purchase stuff!', customer)
+  console.log('Customer can purchase stuff!', customer, paymentSource)
 
   const otherCustomer = await conekta.Customer.findById('9j821831283huas')
 
