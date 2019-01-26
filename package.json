@@ -1,0 +1,31 @@
+{
+  "name": "conekta-kiss",
+  "version": "0.1.0",
+  "description": "Conekta SDK for Node",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuremx/conekta-kiss.git"
+  },
+  "keywords": [
+    "Conekta",
+    "KISS",
+    "Node",
+    "Payments"
+  ],
+  "author": "Nure",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nuremx/conekta-kiss/issues"
+  },
+  "homepage": "https://github.com/nuremx/conekta-kiss#readme",
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
