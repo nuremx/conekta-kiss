@@ -26,9 +26,8 @@
   },
   "homepage": "https://github.com/nuremx/conekta-kiss#readme",
   "dependencies": {
-    "base-64": "^0.1.0",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.5"
+    "btoa": "^1.2.1",
+    "got": "^9.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
