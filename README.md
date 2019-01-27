@@ -34,7 +34,7 @@ Get your Conekta API keys at `https://admin.conekta.com/`
 import conekta from 'conekta-kiss'
 
 // Add your Conekta API private key
-conekta.config('9YxqfRnx4sMQDnRsqdYn')
+conekta.configure('9YxqfRnx4sMQDnRsqdYn')
 
 try {
   // Create customer
