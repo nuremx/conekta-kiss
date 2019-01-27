@@ -1,6 +1,6 @@
 {
   "name": "conekta-kiss",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Conekta SDK for Node",
   "main": "index.js",
   "directories": {
