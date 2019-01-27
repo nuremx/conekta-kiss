@@ -48,7 +48,10 @@ try {
   await customer.save()
 
   // Add payment sources
-  const paymentSource = await customer.addPaymentSource({ token: '' })
+  const paymentSource = await customer.addPaymentSource({
+    tokenId: 'a0s9j0as9dj32',
+    // default type: 'card'
+  })
 
   // Get customer by id
   const otherCustomer = await conekta.Customer.findById('9j821831283huas')
